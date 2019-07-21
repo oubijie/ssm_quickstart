@@ -19,24 +19,14 @@ import com.veryoo.ssmqs.service.IUserService;
  * @since 2019-07-21
  */
 @Controller
-@RequestMapping("/user")
-public class UserController {
+public class HomeController {
 	
 	@Autowired
 	IUserService userService;
 
-	@RequestMapping("/hello")
+	@RequestMapping("/home")
 	public String hello(Model model){
-		User user = userService.getById(1L);
-		System.out.println(user);
-		model.addAttribute(user);
-		return "hello";
+		return "home";
 	}
 	
-	@ResponseBody
-	@RequestMapping("/hellojson")
-	public User hellojson(){
-		User user = userService.getById(1L);
-		return user;
-	}
 }
