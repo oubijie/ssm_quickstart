@@ -7,6 +7,11 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>ssm_quickstart Maven Webapp</name>
   <url>http://maven.apache.org</url>
+  
+  <properties>
+    <spring.version>4.3.10.RELEASE</spring.version>
+  </properties>
+  
   <dependencies>
     <!-- 引入Servlet API -->
     <dependency>
@@ -14,6 +19,81 @@
         <artifactId>javaee-api</artifactId>
         <version>7.0</version>
         <scope>provided</scope>
+    </dependency>
+    
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-orm</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-webmvc</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+    
+    <!-- MySQL数据库驱动包 -->
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>5.1.26</version>
+    </dependency>
+    
+    <!-- 数据库连接池使用c3p0 -->
+    <dependency>
+        <groupId>com.mchange</groupId>
+        <artifactId>c3p0</artifactId>
+        <version>0.9.5.2</version>
+    </dependency>
+    
+    <!-- Mybatis Plus，会依赖引入Mybatis3.5，以及Spring与Mybatis的整合包 -->
+    <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus</artifactId>
+        <version>3.1.2</version>
+    </dependency>
+    
+    <!-- Mybatis Plus代码生成器，需要使用velocity模板-->
+    <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-generator</artifactId>
+        <version>3.1.2</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.velocity</groupId>
+        <artifactId>velocity-engine-core</artifactId>
+        <version>2.1</version>
+    </dependency>
+    
+    <!-- Junit测试包 -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.9</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <!-- 日志相关 -->
+    <dependency>
+        <groupId>log4j</groupId>
+        <artifactId>log4j</artifactId>
+        <version>1.2.17</version>
+    </dependency>
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-log4j12</artifactId>
+        <version>1.7.26</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>1.7.26</version>
     </dependency>
     
   </dependencies>
