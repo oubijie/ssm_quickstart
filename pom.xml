@@ -97,8 +97,10 @@
     </dependency>
     
   </dependencies>
+  
   <build>
     <finalName>ssm_quickstart</finalName>
+    <!-- 打包时把xml文件也加入，解决mapper.xml丢失问题 -->
     <resources>
         <resource>
             <directory>src/main/java</directory>
