@@ -1,7 +1,7 @@
 # ssm_quickstart
 
 #### Description
-{**When you're done, you can delete the content in this README and update the file with details for others getting started with your repository**}
+自用SSM整合基本框架
 
 #### Software Architecture
 Software architecture description
