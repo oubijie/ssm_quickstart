@@ -10,6 +10,9 @@
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
+    <!-- 配置组件扫描 -->
+    <context:component-scan base-package="com.veryoo.ssmqs.service"></context:component-scan>
+    
     <!-- 配置c3p0连接池 -->
     <context:property-placeholder location="classpath:db.properties"/>
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
@@ -20,7 +23,9 @@
     </bean>
     
     <!-- 将sessionFactory也给Spring管理 -->
-    <!-- 集成Mybatis Plus，只需要替换org.mybatis.spring.SqlSessionFactoryBean -->
+    <!-- 集成Mybatis Plus，
+                        只需要替换org.mybatis.spring.SqlSessionFactoryBean
+                        成com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean-->
     <bean id="sqlSessionFactory" class="com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean">
         <!-- 指定数据库连接 -->
         <property name="dataSource" ref="dataSource"></property>
