@@ -12,7 +12,7 @@
     <script type="text/javascript" src="${ctx }/static/easyui/jquery.easyui.min.js"></script>
 </head>
 <body>
-    <div class="easyui-layout" fit="true">
+    <div class="easyui-layout" data-options="fit:true">
         <div data-options="region:'north'" style="height:100px">
             XX管理系统，logo
         </div>

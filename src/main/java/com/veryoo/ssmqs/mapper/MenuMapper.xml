@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.veryoo.ssmqs.mapper.MenuMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.veryoo.ssmqs.entity.Menu">
+        <id column="id" property="id" />
+        <result column="menu_name" property="menuName" />
+        <result column="icon_cls" property="iconCls" />
+        <result column="parent_id" property="parentId" />
+        <result column="action" property="action" />
+        <result column="rank" property="rank" />
+        <result column="create_time" property="createTime" />
+        <result column="modify_time" property="modifyTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, menu_name, icon_cls, parent_id, action, rank, create_time, modify_time
+    </sql>
+
+</mapper>

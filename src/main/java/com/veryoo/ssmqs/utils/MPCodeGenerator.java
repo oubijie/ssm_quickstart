@@ -33,7 +33,8 @@ public class MPCodeGenerator {
 
     public static void main(String[] args) {
         String packageName = "com.veryoo.ssmqs";   //父包名
-        String tableName = "user";              //表名
+        String tableName = "hr_employee";             //表名
+        String tablePrefix = "hr_";                //表前缀
 
         //1.全局配置
         GlobalConfig gc = new GlobalConfig();
@@ -50,7 +51,7 @@ public class MPCodeGenerator {
 
         //2.数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/mp?useUnicode=true&useSSL=false&characterEncoding=utf8");
+        dsc.setUrl("jdbc:mysql://localhost:3306/ssmqs?useUnicode=true&useSSL=false&characterEncoding=utf8");
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("root");
@@ -73,7 +74,7 @@ public class MPCodeGenerator {
 //        strategy.setSuperEntityColumns("id");
         strategy.setInclude(tableName);    //要生成的模块名
         strategy.setControllerMappingHyphenStyle(true);
-//        strategy.setTablePrefix(pc.getModuleName() + "_");
+        strategy.setTablePrefix(tablePrefix);
         
         //5. 自定义属性注入
         InjectionConfig injectionConfig = new InjectionConfig() {
@@ -91,7 +92,6 @@ public class MPCodeGenerator {
         mpg.setStrategy(strategy);
         mpg.setTemplate(new TemplateConfig());
         mpg.setCfg(injectionConfig);
-        mpg.setTemplateEngine(new FreemarkerTemplateEngine());
         mpg.execute();
     }
 
