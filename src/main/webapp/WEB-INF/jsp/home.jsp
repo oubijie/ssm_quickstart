@@ -21,7 +21,7 @@
         </div>
         <div id="sm" class="easyui-sidemenu"
                 title="系统功能列表" style="width:300px;"
-                data-options="region:'west',split:true,data:data" ></div>
+                data-options="region:'west',split:true,data:data,border:false" ></div>
         <div class="easyui-tabs" data-options="region:'center',iconCls:'icon-ok'">
             
         </div>
