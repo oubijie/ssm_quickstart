@@ -1,6 +1,9 @@
 package com.veryoo.ssmqs.mapper;
 
 import com.veryoo.ssmqs.entity.Menu;
+
+import java.util.List;
+
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -13,4 +16,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface MenuMapper extends BaseMapper<Menu> {
 
+	List<Menu> selectMenuByUser(String username);
 }

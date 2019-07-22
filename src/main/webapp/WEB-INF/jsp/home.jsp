@@ -16,17 +16,20 @@
         <div data-options="region:'north'" style="height:100px">
             XX管理系统，logo
         </div>
-        <div data-options="region:'south',split:true" style="height:50px;">
+        <div data-options="region:'south'" style="height:50px;">
                             版权所有@2019
         </div>
-        <div id="sm" class="easyui-sidemenu" data-options="region:'west',split:true,data:data" title="系统功能列表" style="width:300px;"></div>
+        <div id="sm" class="easyui-sidemenu"
+                title="系统功能列表" style="width:300px;"
+                data-options="region:'west',split:true,data:data" ></div>
         <div class="easyui-tabs" data-options="region:'center',iconCls:'icon-ok'">
             
         </div>
     </div>
  
- <script type="text/javascript">
-        var data = [{
+ <script type="text/javascript" src="${ctx }/sidemenu"></script>
+ <script type="text/javascript" >
+        /* var data = [{
             text: '系统管理',
             iconCls: 'icon-sum',
             children: [{
@@ -46,16 +49,16 @@
             },{
                 text: '评论管理'
             }]
-        }];
+        }]; */
  
-        function toggle(){
+       /*  function toggle(){
             var opts = $('#sm').sidemenu('options');
             $('#sm').sidemenu(opts.collapsed ? 'expand' : 'collapse');
             opts = $('#sm').sidemenu('options');
             $('#sm').sidemenu('resize', {
                 width: opts.collapsed ? 60 : 200
             })
-        }
+        } */
     </script>
     
 </body>

@@ -4,17 +4,20 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.veryoo.ssmqs.entity.User">
-    <result column="id" property="id" />
-        <result column="name" property="name" />
-        <result column="age" property="age" />
+        <id column="id" property="id" />
+        <result column="username" property="username" />
+        <result column="password" property="password" />
+        <result column="real_name" property="realName" />
         <result column="email" property="email" />
-        <result column="home_addr" property="homeAddr" />
+        <result column="phone" property="phone" />
+        <result column="locked" property="locked" />
+        <result column="create_time" property="createTime" />
+        <result column="modify_time" property="modifyTime" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id,
-        name, age, email, home_addr
+        id, username, password, real_name, email, phone, locked, create_time, modify_time
     </sql>
-    
+
 </mapper>

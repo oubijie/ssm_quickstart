@@ -9,9 +9,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author oubijie
- * @since 2019-07-21
+ * @since 2019-07-22
  */
 public interface UserMapper extends BaseMapper<User> {
 
-	User selectByPk(Long id);
 }

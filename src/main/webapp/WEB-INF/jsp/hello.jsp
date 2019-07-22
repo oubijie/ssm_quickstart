@@ -6,6 +6,6 @@
 <title>Hello</title>
 </head>
 <body>
-<h1>Hello, ${user.name }</h1>
+<h1>Hello, ${user.username }</h1>
 </body>
 </html>

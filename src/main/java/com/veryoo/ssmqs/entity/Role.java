@@ -1,10 +1,11 @@
 package com.veryoo.ssmqs.entity;
 
-import com.baomidou.mybatisplus.annotation.TableName;
+import java.io.Serializable;
+import java.util.Date;
+
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.time.LocalDateTime;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.TableName;
 
 /**
  * <p>
@@ -26,9 +27,9 @@ public class Role implements Serializable {
 
     private String description;
 
-    private LocalDateTime createTime;
+    private Date createTime;
 
-    private LocalDateTime modifyTime;
+    private Date modifyTime;
 
 
     public Integer getId() {
@@ -55,19 +56,19 @@ public class Role implements Serializable {
         this.description = description;
     }
 
-    public LocalDateTime getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(LocalDateTime createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
-    public LocalDateTime getModifyTime() {
+    public Date getModifyTime() {
         return modifyTime;
     }
 
-    public void setModifyTime(LocalDateTime modifyTime) {
+    public void setModifyTime(Date modifyTime) {
         this.modifyTime = modifyTime;
     }
 

@@ -1,8 +1,12 @@
 package com.veryoo.ssmqs.entity;
 
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.Date;
+
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.TableName;
 
 /**
  * <p>
@@ -10,56 +14,65 @@ import java.io.Serializable;
  * </p>
  *
  * @author oubijie
- * @since 2019-07-21
+ * @since 2019-07-22
  */
+@TableName("sys_user")
 public class User implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID=1L;
 
-    /**
-     * 主键ID
-     */
     @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
+    private Integer id;
 
-    /**
-     * 姓名
-     */
-    private String name;
+    private String username;
 
-    /**
-     * 年龄
-     */
-    private Integer age;
+    private String password;
 
-    /**
-     * 邮箱
-     */
+    private String realName;
+
     private String email;
 
-    private String homeAddr;
+    private String phone;
 
-    public Long getId() {
+    private Boolean locked;
+
+    private Date createTime;
+
+    private Date modifyTime;
+
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
-    public String getName() {
-        return name;
+
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-    public Integer getAge() {
-        return age;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public String getPassword() {
+        return password;
     }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getRealName() {
+        return realName;
+    }
+
+    public void setRealName(String realName) {
+        this.realName = realName;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -67,22 +80,51 @@ public class User implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-    public String getHomeAddr() {
-        return homeAddr;
+
+    public String getPhone() {
+        return phone;
     }
 
-    public void setHomeAddr(String homeAddr) {
-        this.homeAddr = homeAddr;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    @Override
+    public Boolean getLocked() {
+        return locked;
+    }
+
+    public void setLocked(Boolean locked) {
+        this.locked = locked;
+    }
+
+    public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+
+	public Date getModifyTime() {
+		return modifyTime;
+	}
+
+	public void setModifyTime(Date modifyTime) {
+		this.modifyTime = modifyTime;
+	}
+
+	@Override
     public String toString() {
         return "User{" +
-            "id=" + id +
-            ", name=" + name +
-            ", age=" + age +
-            ", email=" + email +
-            ", homeAddr=" + homeAddr +
+        "id=" + id +
+        ", username=" + username +
+        ", password=" + password +
+        ", realName=" + realName +
+        ", email=" + email +
+        ", phone=" + phone +
+        ", locked=" + locked +
+        ", createTime=" + createTime +
+        ", modifyTime=" + modifyTime +
         "}";
     }
 }

@@ -33,8 +33,8 @@ public class MPCodeGenerator {
 
     public static void main(String[] args) {
         String packageName = "com.veryoo.ssmqs";   //父包名
-        String tableName = "hr_employee";             //表名
-        String tablePrefix = "hr_";                //表前缀
+        String tableName = "sys_user";             //表名
+        String tablePrefix = "sys_";                //表前缀
 
         //1.全局配置
         GlobalConfig gc = new GlobalConfig();

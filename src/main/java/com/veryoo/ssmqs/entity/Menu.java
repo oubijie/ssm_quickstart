@@ -1,10 +1,15 @@
 package com.veryoo.ssmqs.entity;
 
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import java.time.LocalDateTime;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * <p>
@@ -22,6 +27,7 @@ public class Menu implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
+    @JsonProperty("text")
     private String menuName;
 
     private String iconCls;
@@ -32,12 +38,33 @@ public class Menu implements Serializable {
 
     private Integer rank;
 
-    private LocalDateTime createTime;
+    private Date createTime;
 
-    private LocalDateTime modifyTime;
+    private Date modifyTime;
+    
+    @TableField(exist=false)
+    private Menu parent;
+    
+    @TableField(exist=false)
+    private List<Menu> children = new ArrayList<Menu>();
 
+    public Menu getParent() {
+		return parent;
+	}
 
-    public Integer getId() {
+	public void setParent(Menu parent) {
+		this.parent = parent;
+	}
+
+	public List<Menu> getChildren() {
+		return children;
+	}
+
+	public void setChildren(List<Menu> children) {
+		this.children = children;
+	}
+
+	public Integer getId() {
         return id;
     }
 
@@ -85,19 +112,19 @@ public class Menu implements Serializable {
         this.rank = rank;
     }
 
-    public LocalDateTime getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(LocalDateTime createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
-    public LocalDateTime getModifyTime() {
+    public Date getModifyTime() {
         return modifyTime;
     }
 
-    public void setModifyTime(LocalDateTime modifyTime) {
+    public void setModifyTime(Date modifyTime) {
         this.modifyTime = modifyTime;
     }
 

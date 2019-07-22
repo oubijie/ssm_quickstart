@@ -1,7 +1,9 @@
 package com.veryoo.ssmqs.service;
 
-import com.veryoo.ssmqs.entity.Menu;
+import java.util.List;
+
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.veryoo.ssmqs.entity.Menu;
 
 /**
  * <p>
@@ -13,4 +15,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IMenuService extends IService<Menu> {
 
+	List<Menu> findSideMenuByUser(String username);
 }
