@@ -19,47 +19,36 @@
         <div data-options="region:'south'" style="height:50px;">
                             版权所有@2019
         </div>
-        <div id="sm" class="easyui-sidemenu"
-                title="系统功能列表" style="width:300px;"
-                data-options="region:'west',split:true,data:data,border:false" ></div>
-        <div class="easyui-tabs" data-options="region:'center',iconCls:'icon-ok'">
+        <div id="sm" title="系统功能列表" style="width:300px;"
+                data-options="region:'west',split:true,border:false" ></div>
+        <div id="tt" class="easyui-tabs" data-options="region:'center',iconCls:'icon-ok'">
             
         </div>
     </div>
  
- <script type="text/javascript" src="${ctx }/sidemenu"></script>
- <script type="text/javascript" >
-        /* var data = [{
-            text: '系统管理',
-            iconCls: 'icon-sum',
-            children: [{
-                text: '用户管理'
-            },{
-                text: '角色管理'
-            },{
-                text: '菜单管理',
-            }]
-        },{
-            text: '博客管理',
-            iconCls: 'icon-sum',
-            children: [{
-                text: '文章管理'
-            },{
-                text: '分类管理'
-            },{
-                text: '评论管理'
-            }]
-        }]; */
+ <script type="text/javascript">
+ $(function(){
+	 $("#sm").tree({
+         url: "sidemenu",
+         onClick:function(node){
+        	 if(node.action){
+        		 var title = node.text;
+        		 var tab = $("#tt").tabs("getTab", title);
+        		 if(tab){
+        			 $("#tt").tabs("select", title);
+        		 }else{
+        			 $('#tt').tabs('add',{
+                         title: node.text,
+                         content: '<div class="easyui-panel" fit="true" href="'+node.action+'" style="padding:10px"></div>',
+                         closable: true
+                     });
+        		 }
+        	 }
+         }
+     });
+ })
  
-       /*  function toggle(){
-            var opts = $('#sm').sidemenu('options');
-            $('#sm').sidemenu(opts.collapsed ? 'expand' : 'collapse');
-            opts = $('#sm').sidemenu('options');
-            $('#sm').sidemenu('resize', {
-                width: opts.collapsed ? 60 : 200
-            })
-        } */
-    </script>
-    
+ 
+ </script>
 </body>
 </html>

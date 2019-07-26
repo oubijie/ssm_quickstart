@@ -8,6 +8,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.util.JSONPObject;
@@ -29,11 +30,11 @@ public class MenuController {
 	@Autowired
 	IMenuService menuService;
 
+	@ResponseBody
 	@RequestMapping(value="/sidemenu", produces = {"application/json;charset=UTF-8"})
-	public String index(){
+	public List<Menu> index(){
 		List<Menu> list = menuService.findSideMenuByUser("zhangsan");
-		String jsonstr = JacksonUtil.bean2Json(list);
-		return "var data = " + jsonstr;
+		return list;
 	}
 	
 	
