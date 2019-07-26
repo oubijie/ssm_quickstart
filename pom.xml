@@ -60,11 +60,11 @@
         <version>5.1.26</version>
     </dependency>
     
-    <!-- 数据库连接池使用c3p0 -->
+    <!-- 数据库连接池使用druid -->
     <dependency>
-        <groupId>com.mchange</groupId>
-        <artifactId>c3p0</artifactId>
-        <version>0.9.5.2</version>
+     <groupId>com.alibaba</groupId>
+     <artifactId>druid</artifactId>
+     <version>1.1.19</version>
     </dependency>
     
     <!-- Mybatis Plus，会依赖引入Mybatis3.5，以及Spring与Mybatis的整合包 -->
