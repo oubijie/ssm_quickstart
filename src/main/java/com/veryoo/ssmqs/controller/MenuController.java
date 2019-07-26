@@ -1,20 +1,18 @@
 package com.veryoo.ssmqs.controller;
 
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.veryoo.ssmqs.entity.Menu;
 import com.veryoo.ssmqs.service.IMenuService;
-import com.veryoo.ssmqs.utils.JacksonUtil;
+import com.veryoo.ssmqs.utils.EasyuiPage;
 
 /**
  * <p>
@@ -24,18 +22,40 @@ import com.veryoo.ssmqs.utils.JacksonUtil;
  * @author oubijie
  * @since 2019-07-22
  */
-@RestController
+@Controller
 public class MenuController {
 	
 	@Autowired
 	IMenuService menuService;
 
+	@RequestMapping(value="/menu")
+	public String index(){
+		return "menu";
+	}
+	
 	@ResponseBody
-	@RequestMapping(value="/sidemenu", produces = {"application/json;charset=UTF-8"})
-	public List<Menu> index(){
+	@RequestMapping(value="/menu/list")
+	public EasyuiPage listMenu(int page, int rows){
+		Page<Menu> p = new Page<Menu>();
+		p.setCurrent(page);
+		p.setSize(rows);
+		IPage<Menu> list = menuService.page(p);
+		
+		EasyuiPage easyuiPage = new EasyuiPage();
+		easyuiPage.setTotal(list.getTotal());
+		easyuiPage.setRows(list.getRecords());
+		return easyuiPage;
+	}
+	
+	
+	@ResponseBody
+	@RequestMapping(value="/sidemenu")
+	public List<Menu> getUserMenu(){
 		List<Menu> list = menuService.findSideMenuByUser("zhangsan");
 		return list;
 	}
+	
+	
 	
 	
 }
