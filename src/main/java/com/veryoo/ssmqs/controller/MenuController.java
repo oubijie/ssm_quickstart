@@ -41,10 +41,8 @@ public class MenuController {
 		p.setSize(rows);
 		IPage<Menu> list = menuService.page(p);
 		
-		EasyuiPage easyuiPage = new EasyuiPage();
-		easyuiPage.setTotal(list.getTotal());
-		easyuiPage.setRows(list.getRecords());
-		return easyuiPage;
+		//需要转换成EasyUI格式的分页
+		return new EasyuiPage(p);
 	}
 	
 	
