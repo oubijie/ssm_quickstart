@@ -1,10 +1,13 @@
 # ssm_quickstart
 
-#### Description
+#### 介绍
 自用SSM整合基本框架
 
-#### Software Architecture
-Software architecture description
+#### 用到的框架
+1. Spring 4.3.10.RELEASE
+2. SpringMVC 4.3.10.RELEASE
+3. Mybatis 3.5.1
+4. Mybatis Plus 3.1.2
 
 #### Installation
 

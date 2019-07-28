@@ -35,7 +35,7 @@ public class MenuController {
 	
 	@ResponseBody
 	@RequestMapping(value="/menu/list")
-	public EasyuiPage listMenu(int page, int rows){
+	public EasyuiPage list(int page, int rows){
 		Page<Menu> p = new Page<Menu>();
 		p.setCurrent(page);
 		p.setSize(rows);
@@ -44,6 +44,19 @@ public class MenuController {
 		//需要转换成EasyUI格式的分页
 		return new EasyuiPage(p);
 	}
+	
+	@ResponseBody
+	@RequestMapping(value="/menu/delete")
+	public String delete(int id){
+		if(menuService.removeById(id)){
+			return "{\"success\":\"true\"}";
+		}else{
+			return "{\"success\":\"false\", \"errorMsg\":\"出错了！\"}";
+		}
+	}
+	
+	
+	
 	
 	
 	@ResponseBody

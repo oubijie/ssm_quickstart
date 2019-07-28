@@ -39,7 +39,7 @@
         		 }else{
         			 $('#tt').tabs('add',{
                          title: node.text,
-                         content: '<div class="easyui-panel" fit="true" href="'+node.action+'" style="padding:10px"></div>',
+                         content: '<div class="easyui-panel" fit="true" href="'+node.action+'"></div>',
                          closable: true
                      });
         		 }
